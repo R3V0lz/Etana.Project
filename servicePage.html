@@ -1,0 +1,799 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Service Request</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand bg-dark navbar-dark" style="height:8vh; padding: 0 10px">
+        <div class="container-fluid">
+            <a class="navbar-brand" onclick="document.location='./loginPage.php'" href="#">Service Desk</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTicketingWeb"
+                aria-controls="navbarTicketingWeb" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarTicketingWeb">
+                <ul class="navbar-nav">
+                    <li class="navbar-brand dropdown">
+                        <a class="nav-link dropdown-toggle-split" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            User
+                            <img src="./image_pg/userAvatar.jpg" alt="Logo" style="margin-left: 10px; width:30px;"
+                                class="rounded-pill">
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Side bar -->
+            <div class="col-sm-12 col-lg-2 sidebar d-flex flex-column">
+                <button onclick="document.location='./dashboardPage.html'" type="button"
+                    class="border rounded-4 border-0 btn btn-dark sidebar-button">Dashboard</button>
+                <button onclick="document.location='./reqPage.html'" type="button"
+                    class="border rounded-4 border-0 shadow btn btn-dark sidebar-button"
+                    style="background-color: #495057;">Request</button>
+            </div>
+            <div class="col-lg-10 main-content pt-5 ps-4" style="overflow-y: auto;">
+                <h2 class="fw-bold">Service Request Form</h2>
+                <form>
+                    <!-- Form awal -->
+                    <div class="bungkus-form mt-4">
+                        <div class="row form-awal border border-up border-bottom-0">
+                            <div class="col-3">
+                                <p class="m-2">Employee Name</p>
+                            </div>
+                            <div class="col-1">
+                                <p class="m-2">:</p>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" id="employeeName" class="m-1 form-control-plaintext"
+                                    placeholder="John Doe">
+                            </div>
+                        </div>
+                        <div class="row form-awal border seling border-bottom-0">
+                            <div class="col-3">
+                                <p class="m-2">Employee Status</p>
+                            </div>
+                            <div class="col-1">
+                                <p class="m-2">:</p>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" id="employeeStatus" class="m-1 form-control-plaintext"
+                                    placeholder="~~~">
+                            </div>
+                        </div>
+                        <div class="row form-awal border border-bottom-0">
+                            <div class="col-3">
+                                <p class="m-2">Job Title</p>
+                            </div>
+                            <div class="col-1">
+                                <p class="m-2">:</p>
+                            </div>
+                            <div class="col-8">
+                                <span><input type="text" id="jobTitle" class="m-1 form-control-plaintext"
+                                        placeholder="~~~"></span>
+                            </div>
+                        </div>
+                        <div class="row form-awal border border-down seling">
+                            <div class="col-3">
+                                <p class="m-2">First day Activity</p>
+                            </div>
+                            <div class="col-1">
+                                <p class="m-2">:</p>
+                            </div>
+                            <div class="col-8">
+                                <input type="date" id="firstActDate" class="m-1 form-control-plaintext">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Requester Sign -->
+                    <h4 class="text-decoration-underline pt-4 pb-1"
+                        style="font-family: 'Courier New', Courier, monospace; font-weight: 600">Requester Sign</h4>
+                    <div class="bungkus-form">
+                        <div class="row request-form border border-up fw-bold border-bottom-0">
+                            <div class="col border-end">
+                                <p class="m-2 py-1">Requested by,</p>
+                            </div>
+                            <div class="col">
+                                <p class="m-2 py-1">Approved by,</p>
+                            </div>
+                        </div>
+                        <div class="row request-form border seling border-bottom-0">
+                            <div class="col border-end">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <p class="m-2">Date</p>
+                                    </div>
+                                    <div class="col-1">
+                                        <p class="m-2">:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="date" id="dateReq" class="m-1 form-control-plaintext">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <p class="m-2">Date</p>
+                                    </div>
+                                    <div class="col-1">
+                                        <p class="m-2">:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="date" id="dateApp" class="m-1 form-control-plaintext">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row request-form border border-bottom-0">
+                            <div class="col border-end">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <p class="m-2">Name</p>
+                                    </div>
+                                    <div class="col-1">
+                                        <p class="m-2">:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" id="nameReq" class="m-1 form-control-plaintext"
+                                            placeholder="John Doe">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <p class="m-2">Name</p>
+                                    </div>
+                                    <div class="col-1">
+                                        <p class="m-2">:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" id="nameApp" class="m-1 form-control-plaintext"
+                                            placeholder="John Doe">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row request-form border seling border-bottom-0">
+                            <div class="col border-end">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <p class="m-2">Job Title</p>
+                                    </div>
+                                    <div class="col-1">
+                                        <p class="m-2">:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" id="jobTitleReq" class="m-1 form-control-plaintext"
+                                            placeholder="~~~">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <p class="m-2">Job Title</p>
+                                    </div>
+                                    <div class="col-1">
+                                        <p class="m-2">:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" id="jobTitleApp" class="m-1 form-control-plaintext"
+                                            placeholder="~~~">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row request-form border border-bottom-0">
+                            <div class="col border-end">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <p class="m-2">Div/Dept</p>
+                                    </div>
+                                    <div class="col-1">
+                                        <p class="m-2">:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" id="div/deptReq" class="m-1 form-control-plaintext"
+                                            placeholder="~~~">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <p class="m-2">Div/Dept</p>
+                                    </div>
+                                    <div class="col-1">
+                                        <p class="m-2">:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" id="div/deptApp" class="m-1 form-control-plaintext"
+                                            placeholder="~~~">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row request-form border border-down seling" style="height: 5em;">
+                            <div class="col border-end">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <p class="m-2">QR Code</p>
+                                    </div>
+                                    <div class="col-1">
+                                        <p class="m-2">:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <p class="m-2">QR Code</p>
+                                    </div>
+                                    <div class="col-1">
+                                        <p class="m-2">:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Acknowledge -->
+                    <h4 class="text-decoration-underline pt-4 pb-1"
+                        style="font-family: 'Courier New', Courier, monospace; font-weight: 600">Acknowledge</h4>
+                    <div class="bungkus-form">
+                        <div class="row acknowledge-form border border-up fw-bold border-bottom-0">
+                            <div class="col border-end">
+                                <p class="m-2 py-1">Name</p>
+                            </div>
+                            <div class="col border-end">
+                                <p class="m-2 py-1">Division</p>
+                            </div>
+                            <div class="col">
+                                <p class="m-2 py-1">QR Code</p>
+                            </div>
+                        </div>
+                        <div class="row acknowledge-form border seling border-bottom-0" style="height: 5rem;">
+                            <div class="col border-end">
+                                <div class="m-2 py-1"></div>
+                            </div>
+                            <div class="col border-end">
+                                <div class="m-2 py-1"></div>
+                            </div>
+                            <div class="col">
+                                <div class="m-2 py-1"></div>
+                            </div>
+                        </div>
+                        <div class="row acknowledge-form border border-bottom-0" style="height: 5rem;">
+                            <div class="col border-end">
+                                <div class="m-2 py-1"></div>
+                            </div>
+                            <div class="col border-end">
+                                <div class="m-2 py-1"></div>
+                            </div>
+                            <div class="col">
+                                <div class="m-2 py-1"></div>
+                            </div>
+                        </div>
+                        <div class="row acknowledge-form border border-down seling" style="height: 5rem;">
+                            <div class="col border-end">
+                                <div class="m-2 py-1"></div>
+                            </div>
+                            <div class="col border-end">
+                                <div class="m-2 py-1"></div>
+                            </div>
+                            <div class="col">
+                                <div class="m-2 py-1"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- IT Division Approval -->
+                    <h4 class="text-decoration-underline pt-4 pb-1"
+                        style="font-family: 'Courier New', Courier, monospace; font-weight: 600">IT Division Approval
+                    </h4>
+                    <div class="bungkus-form">
+                        <div class="row head-form border border-up fw-bold border-bottom-0">
+                            <div class="col">
+                                <p class="m-2 py-1">IT Division Head,</p>
+                            </div>
+                        </div>
+                        <div class="row head-form border seling border-bottom-0">
+                            <div class="col-3">
+                                <p class="m-2">Date</p>
+                            </div>
+                            <div class="col-1">
+                                <p class="m-2">:</p>
+                            </div>
+                            <div class="col-8">
+                                <input type="date" id="dateDivhead" class="m-1 form-control-plaintext">
+                            </div>
+                        </div>
+                        <div class="row head-form border border-bottom-0">
+                            <div class="col-3">
+                                <p class="m-2">Name</p>
+                            </div>
+                            <div class="col-1">
+                                <p class="m-2">:</p>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" id="nameDivhead" class="m-1 form-control-plaintext"
+                                    placeholder="John Doe">
+                            </div>
+                        </div>
+                        <div class="row head-form border seling border-bottom-0">
+                            <div class="col-3">
+                                <p class="m-2">Job Title</p>
+                            </div>
+                            <div class="col-1">
+                                <p class="m-2">:</p>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" id="jobtitleDivhead" class="m-1 form-control-plaintext"
+                                    placeholder="~~~">
+                            </div>
+                        </div>
+                        <div class="row head-form border border-down" style="height: 5em;">
+                            <div class="col-3">
+                                <p class="m-2">QR Code</p>
+                            </div>
+                            <div class="col-1">
+                                <p class="m-2">:</p>
+                            </div>
+                            <div class="col-8">
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Information Security Compliance -->
+                    <h4 class="text-decoration-underline pt-4 pb-1"
+                        style="font-family: 'Courier New', Courier, monospace; font-weight: 600">Information Security
+                        Compliance</h4>
+                    <div class="bungkus-form">
+                        <div class="row infoSecure-form border border-up fw-bold border-bottom-0">
+                            <div class="col border-end">
+                                <p class="m-2 py-1">Checked and Reviewed by,</p>
+                            </div>
+                            <div class="col">
+                                <p class="m-2 py-1">Authorized by,</p>
+                            </div>
+                        </div>
+                        <div class="row infoSecure-form border seling border-bottom-0">
+                            <div class="col border-end">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <p class="m-2">Date</p>
+                                    </div>
+                                    <div class="col-1">
+                                        <p class="m-2">:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="date" id="dateCheckRev" class="m-1 form-control-plaintext">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <p class="m-2">Date</p>
+                                    </div>
+                                    <div class="col-1">
+                                        <p class="m-2">:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="date" id="dateAuthor" class="m-1 form-control-plaintext">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row infoSecure-form border border-bottom-0">
+                            <div class="col border-end">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <p class="m-2">Name</p>
+                                    </div>
+                                    <div class="col-1">
+                                        <p class="m-2">:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" id="nameCheckRev" class="m-1 form-control-plaintext"
+                                            placeholder="John Doe">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <p class="m-2">Name</p>
+                                    </div>
+                                    <div class="col-1">
+                                        <p class="m-2">:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" id="nameAuthor" class="m-1 form-control-plaintext"
+                                            placeholder="John Doe">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row infoSecure-form border seling border-bottom-0">
+                            <div class="col border-end">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <p class="m-2">Job Title</p>
+                                    </div>
+                                    <div class="col-1">
+                                        <p class="m-2">:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" id="jobtitleCheckRev" class="m-1 form-control-plaintext"
+                                            placeholder="~~~">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <p class="m-2">Job Title</p>
+                                    </div>
+                                    <div class="col-1">
+                                        <p class="m-2">:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" id="jobtitleAuthor" class="m-1 form-control-plaintext"
+                                            placeholder="~~~">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row infoSecure-form border border-down" style="height: 5em;">
+                            <div class="col border-end">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <p class="m-2">QR Code</p>
+                                    </div>
+                                    <div class="col-1">
+                                        <p class="m-2">:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <p class="m-2">QR Code</p>
+                                    </div>
+                                    <div class="col-1">
+                                        <p class="m-2">:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Table page 2 -->
+                    <div class="bungkus-form">
+                        <div class="row table2 border border-up fw-bold mt-5 text-center seling border-bottom-0">
+                            <div class="col-2 border-end">
+                                <p class="m-2 py-1">Information Facilities</p>
+                            </div>
+                            <div class="col-1 border-end">
+                                <p class="m-2 py-3">Tick</p>
+                            </div>
+                            <div class="col-7 border-end">
+                                <p class="m-2 py-3">Description</p>
+                            </div>
+                            <div class="col-2">
+                                <p class="m-2 py-1">IT System Owner Approval</p>
+                            </div>
+                        </div>
+                        <div class="row table2 border text-center border-bottom-0">
+                            <div class="col-2 border-end d-flex align-items-center justify-content-center">
+                                <p class="m-2 py-1">Email</p>
+                            </div>
+                            <div class="col-1 border-end d-flex align-items-center justify-content-center">
+                                <input class="form-check-input checkbox-lg" type="checkbox" value="" id="Email">
+                            </div>
+                            <div class="col-7 border-end border-bottom-0">
+                                <div class="row">
+                                    <div
+                                        class="m-0 col border-end form-check d-flex flex-row-reverse justify-content-center">
+                                        <input class="m-3 form-check-input" name="Email" type="radio" value="InOnl"
+                                            id="internOnly">
+                                        <label class="m-2 py-1 form-check-label" for="internOnly">
+                                            Internal Only
+                                        </label>
+                                    </div>
+                                    <div
+                                        class="m-0 col form-check d-flex flex-row-reverse justify-content-center border-end-0">
+                                        <input class="m-3 form-check-input" name="Email" type="radio" value="InEx"
+                                            id="InternExtern">
+                                        <label class="m-2 py-1 form-check-label" for="InternExtern">
+                                            Internal & External
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <h5 class="col py-2 m-0 border-top text-start">Work purpose</h5>
+                                </div>
+                            </div>
+                            <div class="col-2" style="height: auto;"></div>
+                        </div>
+                        <div class="row table2 border text-center border-bottom-0">
+                            <div class="col-2 border-end d-flex align-items-center justify-content-center">
+                                <p class="m-2 py-1">Internet</p>
+                            </div>
+                            <div class="col-1 border-end d-flex align-items-center justify-content-center">
+                                <input class="form-check-input checkbox-lg" type="checkbox" value="" id="internet">
+                            </div>
+                            <div class="col-7 border-end d-flex align-items-center">
+                                <div class="row">
+                                    <h5 class="col py-4 m-0">Work purpose</h5>
+                                </div>
+                            </div>
+                            <div class="col-2" style="height: auto;"></div>
+                        </div>
+                        <div class="row table2 border text-center border-bottom-0">
+                            <div class="col-2 border-end d-flex align-items-center justify-content-center">
+                                <p class="m-2 py-1">IP Phone</p>
+                            </div>
+                            <div class="col-1 border-end d-flex align-items-center justify-content-center">
+                                <input class="form-check-input checkbox-lg" type="checkbox" value="" id="IPphone">
+                            </div>
+                            <div class="col-7 border-end text-start">
+                                <div class="d-flex flex-wrap">
+                                    <div
+                                        class="m-0 flex-fill border-end form-check d-flex flex-row-reverse justify-content-center">
+                                        <input class="m-3 form-check-input" name="extension" type="checkbox"
+                                            id="extension">
+                                        <label class="m-2 py-1 form-check-label" for="extension">
+                                            Extension
+                                        </label>
+                                    </div>
+                                    <div
+                                        class="m-0 flex-fill border-end form-check d-flex flex-row-reverse justify-content-center">
+                                        <input class="m-3 form-check-input" name="local" type="checkbox" id="local">
+                                        <label class="m-2 py-1 form-check-label" for="local">
+                                            Local
+                                        </label>
+                                    </div>
+                                    <div
+                                        class="m-0 flex-fill border-end form-check d-flex flex-row-reverse justify-content-center">
+                                        <input class="m-3 form-check-input" name="hp" type="checkbox" id="hp">
+                                        <label class="m-2 py-1 form-check-label" for="hp">
+                                            HP
+                                        </label>
+                                    </div>
+                                    <div
+                                        class="m-0 flex-fill border-end form-check d-flex flex-row-reverse justify-content-center">
+                                        <input class="m-3 form-check-input" name="sljj" type="checkbox" id="sljj">
+                                        <label class="m-2 py-1 form-check-label" for="sljj">
+                                            SLJJ
+                                        </label>
+                                    </div>
+                                    <div
+                                        class="m-0 flex-fill form-check d-flex flex-row-reverse justify-content-center">
+                                        <input class="m-3 form-check-input" name="sli" type="checkbox" id="sli">
+                                        <label class="m-2 py-1 form-check-label" for="sli">
+                                            SLI
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row border-top">
+                                    <label for="IPreason">Reason:</label>
+                                    <textarea class="form-control border-0" style="resize: none" rows="3" id="IPreason"
+                                        name="text"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-2" style="height: auto;"></div>
+                        </div>
+                        <div class="row table2 border text-center border-bottom-0">
+                            <div class="col-2 border-end d-flex align-items-center justify-content-center">
+                                <p class="m-2 py-1">Mobile Devices</p>
+                            </div>
+                            <div class="col-1 border-end d-flex align-items-center justify-content-center">
+                                <input class="form-check-input checkbox-lg" type="checkbox" value="" id="mobile">
+                            </div>
+                            <div class="col-7 border-end text-start">
+                                <div class="row">
+                                    <div
+                                        class="col border-end form-check d-flex flex-row-reverse align-items-center justify-content-center">
+                                        <input class="m-1 form-check-input" name="tabletpack" type="checkbox"
+                                            id="tabletpack">
+                                        <label class="m-2 form-check-label" for="tabletpack">
+                                            Tablet Package
+                                        </label>
+                                    </div>
+                                    <div
+                                        class="col border-end form-check d-flex flex-row-reverse align-items-center justify-content-center">
+                                        <input class="m-1 form-check-input" name="internetSim" type="checkbox"
+                                            id="internetSim">
+                                        <label class="m-2 form-check-label" for="internetSim">
+                                            Internet Sim Card
+                                        </label>
+                                    </div>
+                                    <div
+                                        class="col form-check d-flex flex-row-reverse align-items-center justify-content-center">
+                                        <input class="m-2 form-check-input" name="phoneNum" type="checkbox"
+                                            id="phoneNum">
+                                        <label class="form-check-label" for="phoneNum">
+                                            Cell Phone Number
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row border-top">
+                                    <label for="mobileDevReason">Reason:</label>
+                                    <textarea class="form-control border-0" style="resize: none" rows="3"
+                                        id="mobileDevReason" name="text"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-2" style="height: auto;"></div>
+                        </div>
+                        <div class="row table2 border text-center border-bottom-0">
+                            <div class="col-2 border-end d-flex align-items-center justify-content-center">
+                                <p class="m-2 py-1">VPN</p>
+                            </div>
+                            <div class="col-1 border-end d-flex align-items-center justify-content-center">
+                                <input class="form-check-input checkbox-lg" type="checkbox" value="" id="vpn">
+                            </div>
+                            <div class="col-7 border-end text-start">
+                                <div class="row">
+                                    <div class="col-4 border-end d-flex align-items-center justify-content-start">
+                                        <p class="m-2 py-1">International Access Link</p>
+                                    </div>
+                                    <div
+                                        class="col border-end form-check d-flex flex-row-reverse align-items-center justify-content-center">
+                                        <input class="m-1 form-check-input" name="tunnelInternational" type="checkbox"
+                                            id="tunnelInternational">
+                                        <label class="m-2 form-check-label" for="tunnelInternational">
+                                            Tunneling
+                                        </label>
+                                    </div>
+                                    <div
+                                        class="col form-check d-flex flex-row-reverse align-items-center justify-content-center">
+                                        <input class="m-2 form-check-input" name="sslWebInternational" type="checkbox"
+                                            id="sslWebInternational">
+                                        <label class="form-check-label" for="sslWebInternational">
+                                            SSL Web Access
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row border-top">
+                                    <div class="col-4 border-end d-flex align-items-center justify-content-start">
+                                        <p class="m-2 py-1">Local Access Link</p>
+                                    </div>
+                                    <div
+                                        class="col border-end form-check d-flex flex-row-reverse align-items-center justify-content-center">
+                                        <input class="m-1 form-check-input" name="tunnelLocal" type="checkbox"
+                                            id="tunnelLocal">
+                                        <label class="m-2 form-check-label" for="tunnelLocal">
+                                            Tunneling
+                                        </label>
+                                    </div>
+                                    <div
+                                        class="col form-check d-flex flex-row-reverse align-items-center justify-content-center">
+                                        <input class="m-2 form-check-input" name="sslWebLocal" type="checkbox"
+                                            id="sslWebLocal">
+                                        <label class="form-check-label" for="sslWebLocal">
+                                            SSL Web Access
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row border-top">
+                                    <label for="vpnReason">Reason:</label>
+                                    <textarea class="form-control border-0" style="resize: none" rows="3" id="vpnReason"
+                                        name="text"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-2" style="height: auto;"></div>
+                        </div>
+                        <div class="row table2 border text-center border-bottom-0">
+                            <div class="col-2 border-end d-flex align-items-center justify-content-center">
+                                <p class="m-2 py-1">Application</p>
+                            </div>
+                            <div class="col-1 border-end d-flex align-items-center justify-content-center">
+                                <input class="form-check-input checkbox-lg" type="checkbox" value="" id="app1">
+                            </div>
+                            <div class="col-7 border-end text-start"></div>
+                            <div class="col-2" style="height: auto;"></div>
+                        </div>
+                        <div class="row table2 border text-center border-bottom-0">
+                            <div class="col-2 border-end d-flex align-items-center justify-content-center">
+                                <p class="m-2 py-1">Application</p>
+                            </div>
+                            <div class="col-1 border-end d-flex align-items-center justify-content-center">
+                                <input class="form-check-input checkbox-lg" type="checkbox" value="" id="app2">
+                            </div>
+                            <div class="col-7 border-end text-start"></div>
+                            <div class="col-2" style="height: auto;"></div>
+                        </div>
+                        <div class="row table2 border text-center border-bottom-0">
+                            <div class="col-2 border-end d-flex align-items-center justify-content-center"></div>
+                            <div class="col-1 border-end d-flex align-items-center justify-content-center"></div>
+                            <div class="col-7 border-end text-start">
+                                <div class="row">
+                                    <label for="vpnReason">Reason:</label>
+                                    <textarea class="form-control border-0" style="resize: none" rows="3" id="vpnReason"
+                                        name="text"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-2" style="height: auto;"></div>
+                        </div>
+                        <div class="row table2 border text-center border-down">
+                            <div class="col-2 border-end d-flex align-items-center justify-content-center">
+                                <p class="m-2 py-1">Temporary Computer</p>
+                            </div>
+                            <div class="col-1 border-end d-flex align-items-center justify-content-center">
+                                <input class="form-check-input checkbox-lg" type="checkbox" value=""
+                                    id="temporaryComputer">
+                            </div>
+                            <div class="col-7 border-end border-bottom-0 d-flex">
+                                <div class="row flex-fill">
+                                    <div
+                                        class="m-0 col border-end form-check d-flex flex-row-reverse align-items-center justify-content-center">
+                                        <input class="m-3 form-check-input" name="temporaryComputer" type="radio"
+                                            value="notebook" id="notebook">
+                                        <label class="m-2 py-1 form-check-label" for="notebook">
+                                            Notebook
+                                        </label>
+                                    </div>
+                                    <div
+                                        class="m-0 col form-check d-flex flex-row-reverse align-items-center justify-content-center border-end-0">
+                                        <input class="m-3 form-check-input" name="temporaryComputer" type="radio"
+                                            value="PC" id="PC">
+                                        <label class="m-2 py-1 form-check-label" for="PC">
+                                            PC
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2" style="height: auto;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Button -->
+                    <div class="row d-flex justify-content-between align-items-end" style="height: 100px;">
+                        <button type="button" class="col-1 btn btn-danger form-btn"
+                            onclick="document.location='./serviceTable.html'">Back</button>
+                        <button type="submit" class="col-3 btn btn-success form-btn">Submit</button>
+                    </div>
+                </form>
+
+                <div class="table-responsive"></div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
